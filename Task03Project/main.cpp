@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-int count_of_number_digitis(int number)
+int sum_of_digits_in_number(int number)
 {
 	if (number < 0)
 	{
 		number = -number;
 	}
-		
+
 	if (number < 10)
 	{
-		return 1;
+		return number;
 	}
 
-	return count_of_number_digitis(number / 10) + 1;
+	return sum_of_digits_in_number(number / 10) + number % 10;
 }
 
 int main()
@@ -24,7 +24,8 @@ int main()
 	cout << "Input your number: ";
 	cin >> number;
 
-	cout << count_of_number_digitis(number) << endl;
+	cout << sum_of_digits_in_number(number) << endl;
 
 	return 0;
+
 }
