@@ -3,8 +3,6 @@ using namespace std;
 
 int get_max_digit_in_number(int number)
 {
-	int max = 0;
-
 	if (number <= 0)
 	{
 		number = -number;
@@ -15,7 +13,8 @@ int get_max_digit_in_number(int number)
 		return number;
 	}
 
-	number = get_max_digit_in_number(number % 10);
+	int max = number % 10;
+	number = get_max_digit_in_number(number / 10);
 
 	return max > number ? max : number;
 }
